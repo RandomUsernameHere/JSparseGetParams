@@ -8,7 +8,7 @@ function parseGetParams(){
 	var beforeGET = origin+pathname;
 	var withoutAdress = href.replace(beforeGET, '');
 
-	//Убираем хэш-данные
+	//Убираем хэш-данные(они идут в конце урла)
 	var withoutHash = withoutAdress.split('#');
 
 	//Обрабатываем GET-строку
