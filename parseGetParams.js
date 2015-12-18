@@ -1,15 +1,21 @@
 function parseGetParams(){
 	//Получаем данные о URL
 	var href = window.location.href;
-	var origin = window.location.origin;
 	var pathname = window.location.pathname;
+	var origin = '';
+	if(typeof(window.location.origin) === 'undefined'){
+		origin = window.location.protocol+ "//" + window.location.host;
+	}
+	else{
+		origin = window.location.origin;
+	}
 
 	//Убираем начало адреса
 	var beforeGET = origin+pathname;
-	var withoutAdress = href.replace(beforeGET, '');
+	var withoutAddress = href.replace(beforeGET, '');
 
 	//Убираем хэш-данные(они идут в конце урла)
-	var withoutHash = withoutAdress.split('#');
+	var withoutHash = withoutAddress.split('#');
 
 	//Обрабатываем GET-строку
 	var resArray = withoutHash[0].split('&');
